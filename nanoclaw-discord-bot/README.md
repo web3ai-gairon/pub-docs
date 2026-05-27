@@ -18,6 +18,18 @@ https://github.com/web3ai-gairon/pub-docs の nanoclaw-discord-bot/ ディレク
 
 > 💡 **ブラウザで見たい場合**: [`https://web3ai-gairon.github.io/pub-docs/nanoclaw-discord-bot/`](https://web3ai-gairon.github.io/pub-docs/nanoclaw-discord-bot/) を開けば、Step 1 / Step 2 のハブ画面（GUI 版）が見られます。Claude Code 経由でも HTML 経由でも、たどり着く先は同じです。
 
+### 手元に clone して使う（カスタマイズしたい人向け）
+
+教材を改造したい、自分の組織用に書き換えたい、という人は手元に clone してください：
+
+```bash
+git clone https://github.com/web3ai-gairon/pub-docs.git
+cd pub-docs/nanoclaw-discord-bot
+open index.html        # ブラウザでハブ画面を開く
+```
+
+clone 後は `assets/CLAUDE.local.md.minta`（人格テンプレ）や `PROMPTS.md`（プロンプト）など自由に書き換え可能。改変版を自分のリポジトリにフォークして公開もOK（**CC BY-NC-SA 4.0** の継承・帰属条件あり）。詳しい改変ガイドは [`INSTRUCTOR.md`](INSTRUCTOR.md)、配布手順は [`DISTRIBUTION.md`](DISTRIBUTION.md) を参照。
+
 ---
 
 ## 完成イメージ

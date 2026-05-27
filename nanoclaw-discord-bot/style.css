@@ -386,6 +386,31 @@ body {
   transition: background 0.12s, color 0.12s;
 }
 .back-link:hover { background: var(--bg-subtle); color: var(--text-primary); }
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.85rem;
+  padding: 6px 12px;
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+.github-link:hover {
+  background: var(--text-primary);
+  color: var(--text-inverse);
+  border-color: var(--text-primary);
+  text-decoration: none;
+}
+.github-link::before {
+  content: "↗";
+  font-size: 0.95em;
+  display: inline-block;
+}
 .progress-pill {
   display: inline-flex;
   align-items: center;
