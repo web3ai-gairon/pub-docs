@@ -8,6 +8,18 @@
 
 ---
 
+## 🚀 まず最初に — これを Claude Code に貼って始める
+
+新しい Claude Code 会話を開いて、以下の **1 行プロンプト** をそのまま貼り付けてください。あとは伴走で進みます。
+
+```
+https://github.com/web3ai-gairon/pub-docs の nanoclaw-discord-bot/ ディレクトリの教材を使って、Discord 上で動く自分専用の AI Bot を一緒に作りたいです。リポジトリを clone して、nanoclaw-discord-bot/README.md を読んで全体像を把握してから、私の OS / Docker / Node / pnpm / Claude Code CLI / 既存ツールを調査して、最初の構築計画を提示してください。その後は nanoclaw-discord-bot/PROMPTS.md の P0 → P1 → P2 → P3 → P4 → P5 → P6 → P7 → PV の順に伴走してください。Docker Desktop インストール (MANUAL.md ステップ A) と Discord Bot 作成 (MANUAL.md ステップ B) と nanoclaw.sh の対話入力 (MANUAL.md ステップ C) で手動が必要な部分は、その都度私に案内してください。シークレット (Discord Bot Token) は AI チャットに貼らない方針で進めます。教材の例「minta」をそのまま作っても、自分の好きな Bot 名・人格にしてもOKです。
+```
+
+> 💡 **ブラウザで見たい場合**: [`https://web3ai-gairon.github.io/pub-docs/nanoclaw-discord-bot/`](https://web3ai-gairon.github.io/pub-docs/nanoclaw-discord-bot/) を開けば、Step 1 / Step 2 のハブ画面（GUI 版）が見られます。Claude Code 経由でも HTML 経由でも、たどり着く先は同じです。
+
+---
+
 ## 完成イメージ
 
 Discord のサーバで（教材の例「minta」の場合）:
