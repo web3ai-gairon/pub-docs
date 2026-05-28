@@ -203,6 +203,41 @@ T-PERSONA-NOT-APPLIED: CLAUDE.local.md の反映を診断してください。
 
 ---
 
+## T-AUTO-WIRING-SPAM — 公開チャンネルで Bot が勝手に連続返信する
+
+**症状**:
+- 公開チャンネルで誰かが Bot にメンションした後、その後の **メンションしていないメッセージにも Bot が応答する**
+- 学生が普通に会話してるだけで Bot が連続応答してしまい、API 料金が暴発しそう
+
+**原因**:
+nanoclaw のデフォルト挙動。新しい Discord グループチャネルが承認登録された時、自動で `mention-sticky` モードの wiring が作られる。一度メンションされると以後そのチャネル全体で全メッセージに反応する。
+
+```
+T-AUTO-WIRING-SPAM: 公開チャンネルでの連続返信を止めてください。
+
+1. wiring を確認:
+   ./bin/ncl wirings list
+
+2. engage_mode が "mention-sticky" の wiring を特定し、mention に変更:
+   ./bin/ncl wirings update --id <mga-id> --engage-mode mention
+
+3. 恒久対策として、nanoclaw 本体の src/modules/permissions/index.ts を編集して、新規承認時のデフォルトを mention に変える:
+   - 「const engageMode: ... = isGroup ? 'mention-sticky' : 'pattern';」が 2 箇所
+   - どちらも 'mention-sticky' を 'mention' に変更
+   - DM 側（'pattern'）はそのまま
+
+4. pnpm run build で再ビルド
+
+5. ホスト再起動:
+   docker ps --filter "name=nanoclaw" -q | xargs -r docker stop
+   SLUG=$(launchctl list | awk '/com.nanoclaw-v2-/ {gsub(/com.nanoclaw-v2-/,"",$3); print $3}')
+   launchctl kickstart -k "gui/$(id -u)/com.nanoclaw-v2-$SLUG"
+
+6. 動作確認: 私に「公開チャンネルで Bot にメンションした後、別の話題を投稿してみて」と促し、メンションした時だけ反応する状態か確認
+```
+
+---
+
 ## T-RESET — 完全リセットして最初からやり直す
 
 **症状**:

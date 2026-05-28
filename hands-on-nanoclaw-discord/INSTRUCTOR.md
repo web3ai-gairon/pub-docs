@@ -129,6 +129,15 @@ nanoclaw 本体が更新されると、`@chat-adapter/discord` のバージョ�
 - 自分で全ステップ再テストしてから配布
 - `PROMPTS.md` P6 のパッケージバージョンを差し替えるだけで対応可能
 
+### 自動 wiring のデフォルトが `mention-sticky`
+
+nanoclaw のデフォルト挙動として、新しい Discord グループチャネルで Bot が承認登録された時、自動で `mention-sticky` モードの wiring が作られる。これは「一度メンションされたら以後そのチャネル全体で全メッセージに反応」という設計だが、多人数チャンネルでは Bot が連続応答し続けて **API 料金が暴発する事故**になりやすい。
+
+対処:
+- 受講者には事前に「公開チャネルで Bot を承認登録した直後は `./bin/ncl wirings list` で engage_mode を確認して、mention-sticky なら mention に変える」と伝える
+- 恒久対策として `src/modules/permissions/index.ts` のデフォルトを `mention` に変えるパッチを当てておくのが推奨（詳細は customize.html「📡 公開チャンネルで Bot が勝手に連続返信するのを防ぐ」レシピ、または TROUBLESHOOT の T-AUTO-WIRING-SPAM 参照）
+- 講師は自分の配布フォークでこのパッチを事前適用してから配ると、受講者はこの罠を踏まずに済む
+
 ---
 
 ## 改善提案・PR を受け取る場合

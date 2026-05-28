@@ -208,6 +208,8 @@ daemon が応答したら docker version の出力を 5 行以内で要約し、
 
 9. 応答が来た場合、ログから何が起きたかを 3 行で要約。応答が来ない場合は ~/Documents/nanoclaw/logs/nanoclaw.log と nanoclaw.error.log を tail し、何が起きているか確認して TROUBLESHOOT.md の該当セクションに誘導
 
+10. ⚠️ 重要な注意：nanoclaw のデフォルト挙動として、**新しい Discord グループチャネルが承認登録された時の wiring は `mention-sticky` モード**になる（「一度メンションされたら以後そのチャネルで全メッセージに反応」）。これは多人数チャンネルでは事故のもと。**今後また別のチャネルで承認カードを Allow する場合に備えて、デフォルトを mention に変えるパッチも当てておくことを推奨**。詳しくは customize.html「📡 公開チャンネルで Bot が勝手に連続返信するのを防ぐ」レシピ、または TROUBLESHOOT.md の T-AUTO-WIRING-SPAM を参照。
+
 完了したら、次のプロンプトに進んでいいか聞いてください。
 
 ⚠️ unknown_sender_policy=public にすると誰でもメンションで Claude を呼べる = API 料金は所有者持ちです。この点を私に注意喚起してください。

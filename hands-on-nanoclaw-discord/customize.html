@@ -270,6 +270,42 @@
       </div>
     </div>
 
+    <!-- ========== レシピ8: 自動wiringの暴発対策 ========== -->
+    <div class="card">
+      <div class="card-title">📡 公開チャンネルで Bot が勝手に連続返信するのを防ぐ（自動 wiring の暴発対策）</div>
+      <p>nanoclaw のデフォルト挙動として、<strong>新しい Discord グループチャネルで Bot が承認登録された時に、自動で <code>mention-sticky</code> モードの wiring が作られます</strong>。これは「一度メンションされたスレッド内では以後常駐」という設計ですが、グループチャネル単位で適用されると <strong>そのチャネル全体で全メッセージに反応</strong>してしまい、学生が普通に会話してるだけで Bot が連続応答 → API 料金が暴発する事故になります。</p>
+      <p>これを防ぐには、nanoclaw 本体の <code>src/modules/permissions/index.ts</code> を編集して、デフォルトを <code>mention</code>（メンション時のみ反応）に変えます。1 行ずつ 2 箇所修正するだけ。</p>
+      <div class="prompt-block" style="margin: 16px 0 0;">
+        <div class="prompt-block-header">
+          <span class="prompt-block-label">📋 自動 wiring デフォルト変更プロンプト</span>
+          <button class="copy-btn">📋 コピー</button>
+        </div>
+<pre>nanoclaw の「承認カードで新しい Discord グループチャネルを Allow した時、デフォルトで mention-sticky の wiring が作られる」挙動を、mention（メンション時のみ反応）に変えてください。
+
+1. src/modules/permissions/index.ts の 2 箇所を編集:
+   - 「const engageMode: ... = isGroup ? 'mention-sticky' : 'pattern';」 という行が 2 つある
+   - どちらも 'mention-sticky' を 'mention' に変える
+   - DM 側（: 'pattern'）はそのまま（DM は全メッセージに反応してOK）
+
+2. pnpm run build で TypeScript をコンパイル
+
+3. 既存コンテナを止めてホスト再起動:
+   docker ps --filter "name=nanoclaw" -q | xargs -r docker stop
+   SLUG=$(launchctl list | awk '/com.nanoclaw-v2-/ {gsub(/com.nanoclaw-v2-/,"",$3); print $3}')
+   echo "Detected nanoclaw install-slug: $SLUG"
+   launchctl kickstart -k "gui/$(id -u)/com.nanoclaw-v2-$SLUG"
+
+4. 既存の mention-sticky wiring があれば mention に変える:
+   ./bin/ncl wirings list   # mention-sticky の行があるか確認
+   # あれば書き換え:
+   ./bin/ncl wirings update --id &lt;mga-id&gt; --engage-mode mention
+
+5. 動作確認:
+   私に「Discord で公開チャンネルで Bot にメンションしてから、別の話題を投稿してみて」と促す
+   メンションした時のみ反応、他の話題には黙ってる、が期待挙動</pre>
+      </div>
+    </div>
+
     <h2 class="section-title" style="margin-top: 48px;"><span class="section-title-emoji">🚀</span> さらに学びを深めたい人へ</h2>
 
     <table class="kv-table">
