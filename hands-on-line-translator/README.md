@@ -11,10 +11,10 @@
 新しい Claude Code 会話を開いて、以下の **1 行プロンプト** をそのまま貼り付けてください。あとは伴走で進みます。
 
 ```
-https://github.com/web3ai-gairon/pub-docs の line-translator-bot/ ディレクトリの教材を使って、ローカル翻訳 LINE Bot を一緒に作りたいです。リポジトリを clone して、line-translator-bot/README.md を読んで全体像を把握してから、私の OS / メモリ / 既存ツールを調査して、最初の構築計画を提示してください。その後は line-translator-bot/PROMPTS.md の P0 → P1 → P2 → P3 → P4 → P5 の順に伴走してください。LINE 認証情報の取得 (MANUAL.md ステップ A) で手動が必要な部分は私に案内してください。シークレット (LINE Channel secret / access token) は AI チャットに貼らない方針で進めます。
+https://github.com/web3ai-gairon/pub-docs の hands-on-line-translator/ ディレクトリの教材を使って、ローカル翻訳 LINE Bot を一緒に作りたいです。リポジトリを clone して、hands-on-line-translator/README.md を読んで全体像を把握してから、私の OS / メモリ / 既存ツールを調査して、最初の構築計画を提示してください。その後は hands-on-line-translator/PROMPTS.md の P0 → P1 → P2 → P3 → P4 → P5 の順に伴走してください。LINE 認証情報の取得 (MANUAL.md ステップ A) で手動が必要な部分は私に案内してください。シークレット (LINE Channel secret / access token) は AI チャットに貼らない方針で進めます。
 ```
 
-> 💡 **ブラウザで見たい場合**: `pub-docs/line-translator-bot/index.html` をダブルクリックすれば、Step 1/2 のハブ画面 (GUI 版) が開きます。Claude Code 経由でも HTML 経由でも、たどり着く先は同じです。
+> 💡 **ブラウザで見たい場合**: `pub-docs/hands-on-line-translator/index.html` をダブルクリックすれば、Step 1/2 のハブ画面 (GUI 版) が開きます。Claude Code 経由でも HTML 経由でも、たどり着く先は同じです。
 
 ---
 

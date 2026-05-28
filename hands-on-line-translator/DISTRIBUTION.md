@@ -7,10 +7,10 @@
 
 ## 原版の場所
 
-本教材の正本は **`web3ai-gairon/pub-docs` リポジトリの `line-translator-bot/` ディレクトリ** にあります:
+本教材の正本は **`web3ai-gairon/pub-docs` リポジトリの `hands-on-line-translator/` ディレクトリ** にあります:
 
 - URL: `https://github.com/web3ai-gairon/pub-docs`
-- パス: `line-translator-bot/`
+- パス: `hands-on-line-translator/`
 
 受講者に渡すときは、上記 URL とディレクトリ名を伝えれば OK。README.md トップの「Claude Code 1 行プロンプト」をコピペするだけで始められる設計になっています。
 
@@ -23,7 +23,7 @@
 | **このリポジトリのまま共有** | 千葉工大 Web3/AI 概論受講者・一般公開 | URL を伝えるだけ。受講者は git clone or Code → Download ZIP |
 | **GitHub Fork (自分の授業用)** | 自分の組織で改変版を配布 | 下記「GitHub Fork 配布」を参照 |
 | **Notion / Confluence** | 既存ナレッジベース内に配置 | `.md` を Notion にインポート、画像は直接アップ |
-| **ZIP メール / Slack 投稿** | 短期イベント、Wi-Fi 不安定環境 | `line-translator-bot/` ごと圧縮 |
+| **ZIP メール / Slack 投稿** | 短期イベント、Wi-Fi 不安定環境 | `hands-on-line-translator/` ごと圧縮 |
 | **LMS (Moodle / Google Classroom)** | 大学・スクール環境 | ZIP もしくはリンク添付 |
 
 **最も汎用性が高いのは GitHub Public repo**。理由:
@@ -50,11 +50,11 @@
 
 ### 2. リポジトリ切り出し
 
-`line-translator-bot/` ディレクトリだけを別リポジトリとして切り出して、自分の組織で運用する例:
+`hands-on-line-translator/` ディレクトリだけを別リポジトリとして切り出して、自分の組織で運用する例:
 
 ```bash
 # 原版から切り出してコピー
-cp -R pub-docs/line-translator-bot /path/to/my-translator-bot
+cp -R pub-docs/hands-on-line-translator /path/to/my-translator-bot
 cd /path/to/my-translator-bot
 
 # 自前リポジトリとして初期化
@@ -97,11 +97,11 @@ https://github.com/<your-username>/my-translator-bot
 
 ```bash
 cd /path/to/pub-docs
-zip -r line-translator-bot.zip line-translator-bot/ \
+zip -r hands-on-line-translator.zip hands-on-line-translator/ \
   -x "*.DS_Store" "*.git*"
 
 # サイズ確認
-ls -lh line-translator-bot.zip
+ls -lh hands-on-line-translator.zip
 ```
 
 これをメール添付・Slack 投稿・Google Drive 共有など。
@@ -148,7 +148,7 @@ CHANGELOG.md を追加してバージョンを切る方法もある:
 **最短ルート (推奨)** — Claude Code に下記 1 行を貼るだけ:
 
 ```
-https://github.com/web3ai-gairon/pub-docs の line-translator-bot/ ディレクトリの教材を使って、ローカル翻訳 LINE Bot を一緒に作りたいです。リポジトリを clone して、line-translator-bot/README.md を読んで全体像を把握してから、私の OS / メモリ / 既存ツールを調査して、最初の構築計画を提示してください。その後は line-translator-bot/PROMPTS.md の P0 → P1 → P2 → P3 → P4 → P5 の順に伴走してください。LINE 認証情報の取得 (MANUAL.md ステップ A) で手動が必要な部分は私に案内してください。シークレット (LINE Channel secret / access token) は AI チャットに貼らない方針で進めます。
+https://github.com/web3ai-gairon/pub-docs の hands-on-line-translator/ ディレクトリの教材を使って、ローカル翻訳 LINE Bot を一緒に作りたいです。リポジトリを clone して、hands-on-line-translator/README.md を読んで全体像を把握してから、私の OS / メモリ / 既存ツールを調査して、最初の構築計画を提示してください。その後は hands-on-line-translator/PROMPTS.md の P0 → P1 → P2 → P3 → P4 → P5 の順に伴走してください。LINE 認証情報の取得 (MANUAL.md ステップ A) で手動が必要な部分は私に案内してください。シークレット (LINE Channel secret / access token) は AI チャットに貼らない方針で進めます。
 ```
 
 **従来ルート (手動で進めたい人向け)**:
@@ -159,13 +159,13 @@ https://github.com/web3ai-gairon/pub-docs の line-translator-bot/ ディレク�
 ## 1. 教材を入手
 
 git clone https://github.com/web3ai-gairon/pub-docs.git
-cd pub-docs/line-translator-bot
+cd pub-docs/hands-on-line-translator
 
-（または ZIP をダウンロードして line-translator-bot/ を取り出す）
+（または ZIP をダウンロードして hands-on-line-translator/ を取り出す）
 
 ## 2. Claude Code を開く
 
-VSCode 拡張 / CLI / Web 版 のいずれか。clone したディレクトリ (`pub-docs/line-translator-bot/`) で開くのが理想。
+VSCode 拡張 / CLI / Web 版 のいずれか。clone したディレクトリ (`pub-docs/hands-on-line-translator/`) で開くのが理想。
 
 ## 3. README.md を読む
 
